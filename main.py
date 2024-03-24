@@ -8,7 +8,7 @@ from vegeta import Vegeta
 pygame.init()
 WIDTH, HEIGHT = 700, 500
 WIN = pygame.display.set_mode((WIDTH, HEIGHT), pygame.SRCALPHA)
-pygame.display.set_caption("DBZ")
+pygame.display.set_caption("DBZ: test")
 pygame.mixer.init()
 PADDLE_HEIGHT = 40
 PADDLE_WIDTH = 15
