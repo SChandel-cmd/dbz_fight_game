@@ -15,7 +15,8 @@ class Stage:
 		pygame.draw.rect(win, self.COLOR, (self.x, self.y, self.width, self.height))
 		
 	def activate_y_gravity(self, entity):
-		if entity.x >= self.x and entity.x + entity.width <= self.x + self.width and entity.y + entity.height - 5>= self.y:
+		if (entity.x >= self.x and entity.x + entity.width <= self.x + self.width and
+				entity.y + entity.height - 5 >= self.y and entity.y <= self.y + self.height):
 			entity.is_jumping = False
 			entity.jumps = 20
 			pass

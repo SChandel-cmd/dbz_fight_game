@@ -5,6 +5,7 @@ from attack import Attack
 from goku import Goku
 from vegeta import Vegeta
 
+
 pygame.init()
 WIDTH, HEIGHT = 700, 500
 WIN = pygame.display.set_mode((WIDTH, HEIGHT), pygame.SRCALPHA)
@@ -13,6 +14,11 @@ pygame.mixer.init()
 PLAYER_HEIGHT = 40
 PLAYER_WIDTH = 15
 FPS = 60
+
+font_path = 'assets/fonts/press-start-2p-font/PressStart2P-vaV7.ttf' # or wherever your font file is
+size = 24
+my_font = pygame.font.Font(font_path, size)
+
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -64,6 +70,8 @@ def draw_menu(win, time_val, mouse_pos, mouse_click, screen):
     background_image = pygame.transform.scale(background_image, (WIDTH, HEIGHT))
     win.blit(background_image, (0, 0))
     win.blit(background_ship, (130, 260))
+    x_font = my_font.render('test123', True, WHITE)
+    win.blit(x_font, (30, 40))
     if time_val < 120:
         win.blit(title, (WIDTH * 1 // 6, time_val - 90))
     else:
