@@ -143,7 +143,7 @@ class Vegeta:
         # offset_y = (square_size - image_height) // 2
         # square_surface.blit(vegeta_image, (offset_x, offset_y))
         # win.blit(square_surface, (560,20))
-        win.blit(self.cropped_icon, (560,10))
+        win.blit(self.cropped_icon, (555,5))
         if player.charging and not attack.hold:
             vegeta_image = pygame.transform.scale(vegeta_image, (player.width*5/4, player.height*5/4))
             win.blit(vegeta_image, (player.x, player.y-player.height*1/4))

@@ -18,7 +18,7 @@ class Goku:
     ki_blast_2_sound = pygame.mixer.Sound("assets/sound_fx/ki_blast_2.mp3")
     icon = pygame.image.load('assets/sprites/goku_processed/goku_icon.png')
     icon = pygame.transform.scale(icon, (70, 250))
-    crop_area = pygame.Rect(0, 10, icon.get_width(), icon.get_height() // 3)
+    crop_area = pygame.Rect(0, 10, icon.get_width(), icon.get_height() // 3.25)
     cropped_icon = pygame.Surface((crop_area.width, crop_area.height))
     cropped_icon.blit(icon, (0, 0), crop_area)
     cropped_icon.set_colorkey((0,0,0))
