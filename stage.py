@@ -16,7 +16,7 @@ class Stage:
 		
 	def activate_y_gravity(self, entity):
 		if (entity.x >= self.x and entity.x + entity.width <= self.x + self.width and
-				entity.y + entity.height - 5 >= self.y and entity.y <= self.y + self.height):
+				entity.y + entity.height - 5 >= self.y and entity.y <= self.y):
 			entity.is_jumping = False
 			entity.jumps = 20
 			pass

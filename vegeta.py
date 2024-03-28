@@ -17,6 +17,12 @@ class Vegeta:
     galick_gun_beam_sound = pygame.mixer.Sound("assets/sound_fx/galick_gun_beam.mp3")
     ki_blast_1_sound = pygame.mixer.Sound("assets/sound_fx/ki_blast_1.mp3")
     ki_blast_2_sound = pygame.mixer.Sound("assets/sound_fx/ki_blast_2.mp3")
+    icon = pygame.image.load('assets/sprites/vegeta_processed/vegeta_icon.png')
+    icon = pygame.transform.scale(icon, (50, 220))
+    crop_area = pygame.Rect(0, 10, icon.get_width(), icon.get_height() // 3)
+    cropped_icon = pygame.Surface((crop_area.width, crop_area.height))
+    cropped_icon.blit(icon, (0, 0), crop_area)
+    cropped_icon.set_colorkey((0,0,0))
     def draw(self, win, player, attack):
         attack_image = None
         vegeta_image = pygame.image.load('assets/sprites/vegeta_processed/vegeta_idle.png').convert()
@@ -130,13 +136,14 @@ class Vegeta:
         if player.left_facing and not (player.left_sliding or player.right_sliding):
                 vegeta_image = pygame.transform.flip(vegeta_image, True, False)  
         vegeta_image.set_colorkey((0,0,0))
-        image_width, image_height = vegeta_image.get_size()
-        square_size = 48
-        square_surface = pygame.Surface((square_size, square_size))
-        offset_x = (square_size - image_width) // 2
-        offset_y = (square_size - image_height) // 2
-        square_surface.blit(vegeta_image, (offset_x, offset_y))
-        win.blit(square_surface, (560,20))
+        # image_width, image_height = vegeta_image.get_size()
+        # square_size = 48
+        # square_surface = pygame.Surface((square_size, square_size))
+        # offset_x = (square_size - image_width) // 2
+        # offset_y = (square_size - image_height) // 2
+        # square_surface.blit(vegeta_image, (offset_x, offset_y))
+        # win.blit(square_surface, (560,20))
+        win.blit(self.cropped_icon, (560,10))
         if player.charging and not attack.hold:
             vegeta_image = pygame.transform.scale(vegeta_image, (player.width*5/4, player.height*5/4))
             win.blit(vegeta_image, (player.x, player.y-player.height*1/4))

@@ -16,7 +16,12 @@ class Goku:
     ha_beam_sound = pygame.mixer.Sound("assets/sound_fx/ha_beam.mp3")
     ki_blast_1_sound = pygame.mixer.Sound("assets/sound_fx/ki_blast_1.mp3")
     ki_blast_2_sound = pygame.mixer.Sound("assets/sound_fx/ki_blast_2.mp3")
-
+    icon = pygame.image.load('assets/sprites/goku_processed/goku_icon.png')
+    icon = pygame.transform.scale(icon, (70, 250))
+    crop_area = pygame.Rect(0, 10, icon.get_width(), icon.get_height() // 3)
+    cropped_icon = pygame.Surface((crop_area.width, crop_area.height))
+    cropped_icon.blit(icon, (0, 0), crop_area)
+    cropped_icon.set_colorkey((0,0,0))
     def draw(self, win, player, attack):
         attack_image = None
         goku_image = pygame.image.load('assets/sprites/goku_processed/goku_idle.png').convert()
@@ -130,13 +135,13 @@ class Goku:
         if player.left_facing and not (player.left_sliding or player.right_sliding):
                 goku_image = pygame.transform.flip(goku_image, True, False)  
         goku_image.set_colorkey((0,0,0))
-        image_width, image_height = goku_image.get_size()
-        square_size = 48
-        square_surface = pygame.Surface((square_size, square_size))
-        offset_x = (square_size - image_width) // 2
-        offset_y = (square_size - image_height) // 2
-        square_surface.blit(goku_image, (offset_x, offset_y))
-        win.blit(square_surface, (100,20))
+        # image_width, image_height = self.icon.get_size()
+        # square_size = 48
+        # square_surface = pygame.Surface((square_size, square_size))
+        # offset_x = (square_size - image_width) // 2
+        # offset_y = (square_size - image_height) // 2
+        # square_surface.blit(self.icon, (offset_x, offset_y))
+        win.blit(self.cropped_icon, (90,0))
         if player.charging and not attack.hold:
             goku_image = pygame.transform.scale(goku_image, (player.width*5/4, player.height*5/4))
             win.blit(goku_image, (player.x, player.y-player.height*1/4))
