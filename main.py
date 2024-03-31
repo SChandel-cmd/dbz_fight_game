@@ -9,13 +9,13 @@ from vegeta import Vegeta
 pygame.init()
 WIDTH, HEIGHT = 700, 500
 WIN = pygame.display.set_mode((WIDTH, HEIGHT), pygame.SRCALPHA)
-pygame.display.set_caption("DBZ: test")
+pygame.display.set_caption("DBZ: BT 0")
 pygame.mixer.init()
 PLAYER_HEIGHT = 40
 PLAYER_WIDTH = 15
 FPS = 60
 
-font_path = 'assets/fonts/PressStart2P-Regular.ttf' # or wherever your font file is
+font_path = 'assets/fonts/PressStart2P-Regular.ttf' 
 size = 28
 my_font = pygame.font.Font(font_path, size)
 
@@ -181,6 +181,7 @@ def main():
 	while run:
 		time_val += 1
 		clock.tick(FPS)
+		# print(clock)
 		if screen[0] == 0:
 			mouse_pos = pygame.mouse.get_pos()
 			if screen_0_switch:
